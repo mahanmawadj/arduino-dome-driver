@@ -257,7 +257,7 @@ namespace ASCOM.Arduino
                         this.Config.Azimuth = Int32.Parse(com_args[1].TrimEnd('#'));
                         this.Config.IsSlewing = false;
                         break;
-                    case "PARKED":
+                    case "PARKED 1":
                         this.Config.Parked = true;
                         break;
                     case ":815#":
