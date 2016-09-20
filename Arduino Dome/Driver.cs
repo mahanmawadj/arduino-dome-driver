@@ -224,7 +224,7 @@ namespace ASCOM.Arduino
             SerialConnection = new ArduinoSerial(StopBits.One, 57600, this.Config.ComPort, true, this.Config.DiagnosticConsole);
             SerialConnection.CommandQueueReady += new ArduinoSerial.CommandQueueReadyEventHandler(SerialConnection_CommandQueueReady);
             HC.WaitForMilliseconds(2000);
-
+            SerialConnection.SendStatus(ArduinoSerial.SerialCommand.Init);
             return true;
         }
 
@@ -238,9 +238,42 @@ namespace ASCOM.Arduino
                 switch (command)
                 {
 
-                    case "P":
+                    case ":INIT":
                         this.Config.Azimuth = Int32.Parse(com_args[1]);
-                        this.Config.IsSlewing = false;
+                        if (com_args[2] == "OPEN")
+                        {
+                            this.Config.ShutterStatus = ShutterState.shutterOpen;
+                        }
+                        else if (com_args[2] == "OPENING")
+                        {
+                            this.Config.ShutterStatus = ShutterState.shutterOpening;
+                        }
+                        else if (com_args[2] == "CLOSED")
+                        {
+                            this.Config.ShutterStatus = ShutterState.shutterClosed;
+                        }
+                        else if (com_args[2] == "CLOSING")
+                        {
+                            this.Config.ShutterStatus = ShutterState.shutterClosing;
+                        }
+                        else this.Config.ShutterStatus = ShutterState.shutterError;
+
+                        if (com_args[3] == "1")
+                        {
+                            this.Config.IsSlewing = true;
+                        }
+                        else if (com_args[3] == "0")
+                        {
+                            this.Config.IsSlewing = false;
+                        }
+                        if (com_args[4].TrimEnd('#') == "1")
+                        {
+                            this.Config.AtHome = false;
+                        }     
+                        else if (com_args[4].TrimEnd('#') == "0")
+                        {
+                            this.Config.AtHome = true;
+                        }
                         break;
                     case ":807#":
                         this.Config.ShutterStatus = ShutterState.shutterOpen;
