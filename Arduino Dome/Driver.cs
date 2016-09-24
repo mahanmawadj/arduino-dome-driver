@@ -224,6 +224,7 @@ namespace ASCOM.Arduino
             SerialConnection = new ArduinoSerial(StopBits.One, 57600, this.Config.ComPort, true, this.Config.DiagnosticConsole);
             SerialConnection.CommandQueueReady += new ArduinoSerial.CommandQueueReadyEventHandler(SerialConnection_CommandQueueReady);
             HC.WaitForMilliseconds(2000);
+            Slaved = false;
             SerialConnection.SendStatus(ArduinoSerial.SerialCommand.Init);
             return true;
         }
