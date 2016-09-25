@@ -4,8 +4,8 @@
 ;
 [Setup]
 AppID={{36071225-2a9d-4ec4-9ba4-c2ba04c3d8e2}
-AppName=ASCOM ArdunioDome Dome Driver
-AppVerName=ASCOM ArdunioDome Dome Driver 1.0.1
+AppName=ASCOM ArduinoDome Dome Driver
+AppVerName=ASCOM ArduinoDome Dome Driver 1.0.1
 AppVersion=1.0.1
 AppPublisher=Mahan <mr.mahan@gmail.com>
 AppPublisherURL=mailto:mr.mahan@gmail.com
@@ -17,26 +17,26 @@ DefaultDirName="{cf}\ASCOM\Dome"
 DisableDirPage=yes
 DisableProgramGroupPage=yes
 OutputDir="."
-OutputBaseFilename="ArdunioDome Setup"
+OutputBaseFilename="ArduinoDome Setup"
 Compression=lzma
 SolidCompression=yes
 ; Put there by Platform if Driver Installer Support selected
 WizardImageFile="C:\Program Files (x86)\ASCOM\Platform 6 Developer Components\Installer Generator\Resources\WizardImage.bmp"
 LicenseFile="C:\Program Files (x86)\ASCOM\Platform 6 Developer Components\Installer Generator\Resources\CreativeCommons.txt"
 ; {cf}\ASCOM\Uninstall\Dome folder created by Platform, always
-UninstallFilesDir="{cf}\ASCOM\Uninstall\Dome\ArdunioDome"
+UninstallFilesDir="{cf}\ASCOM\Uninstall\Dome\ArduinoDome"
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Dirs]
-Name: "{cf}\ASCOM\Uninstall\Dome\ArdunioDome"
+Name: "{cf}\ASCOM\Uninstall\Dome\ArduinoDome"
 ; TODO: Add subfolders below {app} as needed (e.g. Name: "{app}\MyFolder")
 
 [Files]
 Source: "C:\Users\Mahan\Desktop\ArduinoDome\Arduino Dome\bin\Release\ArduinoDome.dll"; DestDir: "{app}"
 ; Require a read-me HTML to appear after installation, maybe driver's Help doc
-Source: "C:\Users\Mahan\Desktop\ArduinoDome\Arduino Dome\readme.txt"; DestDir: "{app}"; Flags: isreadme
+Source: "C:\Users\Mahan\Desktop\ArduinoDome\Arduino Dome\Setup\readme.txt"; DestDir: "{app}"; Flags: isreadme
 ; TODO: Add other files needed by your driver here (add subfolders above)
 
 
