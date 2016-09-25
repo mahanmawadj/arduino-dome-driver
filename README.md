@@ -1,4 +1,4 @@
-# arduino-dome-driver
+# ArduinoDome Driver v1.0.1
 
 This project is for getting an Arduino UNO to connect to a PC via ASCOM for dome control.
 
