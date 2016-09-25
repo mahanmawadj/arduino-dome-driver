@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Text;
-using System.IO;
 using System.IO.Ports;
 using Arduino;
-using System.Windows.Forms;
+using ASCOM.Helper;
 
 namespace ASCOM.Arduino
 {
@@ -14,7 +11,7 @@ namespace ASCOM.Arduino
         private bool debug;
         public ConsoleForm consoleForm;
 
-        ASCOM.Utilities.Util HC = new ASCOM.Utilities.Util(); // Helper class
+        Util HC = new Util(); // Helper class
         public Stack CommandQueue = new Stack(); // Our command received stack
 
         public delegate void CommandQueueReadyEventHandler(object sender, EventArgs e); // Our Process stack callback
@@ -77,7 +74,7 @@ namespace ASCOM.Arduino
                         this.Open();
                         if (!consoleForm.IsDisposed && this.IsOpen) this.consoleForm.ConsoleText = "Connection opened.";
                     }
-                    catch (Exception e)
+                    catch (Exception)
                     {
                         this.Close();
                     }

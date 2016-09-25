@@ -21,16 +21,10 @@
 // --------------------------------------------------------------------------------
 //
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Runtime.InteropServices;
-using System.IO;
 using System.IO.Ports;
-
-using ASCOM;
 using ASCOM.Utilities;
 using ASCOM.Interface;
-using Arduino;
 using Arduino.Properties;
 
 namespace ASCOM.Arduino
